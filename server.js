@@ -14,6 +14,11 @@ const connectDB = require('./db/connect');
 
 app.use(express.json());
 
+// ✅ Root route to handle "/"
+app.get('/', (req, res) => {
+  res.send('Welcome to the Contacts API! Visit /api-docs for API documentation.');
+});
+
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use('/contacts', contactRoutes);
 
